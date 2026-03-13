@@ -1,0 +1,25 @@
+# 忽略所有平台的 Go 编译产物（推荐组合）
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# 忽略构建输出目录（强烈推荐！）
+/bin/
+/dist/
+/build/
+
+# Go 相关
+vendor/
+go.work
+coverage.out
+
+# IDE/系统文件（可选但实用）
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
