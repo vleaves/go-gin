@@ -2,6 +2,7 @@ package hanlder
 
 import (
 	"06_tmpl/model"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -22,13 +23,10 @@ func UserSaveByQuery(c *gin.Context) {
 func UserRegister(c *gin.Context) {
 	var user model.UserModel
 	if err := c.ShouldBind(&user); err != nil {
-		println("err ->", err.Error())
-		return
+		log.Println("err ->", err.Error())
+		c.String(http.StatusBadRequest, "输入的数据不合法")
+	} else {
+		log.Println("email", user.Email, "password", user.Password, "password again", user.PasswordAgain)
+		c.Redirect(http.StatusMovedPermanently, "/")
 	}
-	println("email", user.Email, "password", user.Password, "password again", user.PasswordAgain)
-
-	// email := c.PostForm("email")
-	// password := c.DefaultPostForm("password", "Wa123456")
-	// passwordAgain := c.DefaultPostForm("password-again", "Wa123456")
-	// println("email", email, "password", password, "password again", passwordAgain)
 }
