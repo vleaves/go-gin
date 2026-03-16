@@ -5,6 +5,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
+
+	handler "05_router/handler"
 )
 
 func retHelloGinAndMethod(c *gin.Context) {
@@ -20,6 +22,9 @@ func SetupRouter() *gin.Engine {
 	router.PATCH("/", retHelloGinAndMethod)
 	router.HEAD("/", retHelloGinAndMethod)
 	router.OPTIONS("/", retHelloGinAndMethod)
+
+	router.GET("/user/:name", handler.UserSave)
+	router.GET("/user", handler.UserSaveByQuery)
 	// router.GET("/", func(c *gin.Context) {
 	// 	c.String(http.StatusOK, "hello gin get method")
 	// })
