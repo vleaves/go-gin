@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 
-	handler "06_tmpl/handler"
+	handler "04_form/handler"
 )
 
 func InitRouter() *gin.Engine {

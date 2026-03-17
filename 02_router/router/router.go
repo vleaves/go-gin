@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	handler "05_router/handler"
+	handler "02_router/handler"
 )
 
 func retHelloGinAndMethod(c *gin.Context) {

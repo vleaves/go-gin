@@ -1,7 +1,7 @@
 package main
 
 import (
-	"05_router/router"
+	"02_router/router"
 )
 
 func main() {

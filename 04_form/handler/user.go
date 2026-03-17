@@ -1,7 +1,7 @@
 package hanlder
 
 import (
-	"06_tmpl/model"
+	"04_form/model"
 	"log"
 	"net/http"
 

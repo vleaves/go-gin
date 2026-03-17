@@ -1,4 +1,4 @@
-module 06_tmpl
+module 04_form
 
 go 1.25.6
 

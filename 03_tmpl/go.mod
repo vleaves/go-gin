@@ -1,4 +1,4 @@
-module 06_tmpl
+module 03_tmpl
 
 go 1.25.6
 

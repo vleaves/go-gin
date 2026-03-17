@@ -1,7 +1,7 @@
 package main
 
 import (
-	"06_tmpl/router"
+	"03_tmpl/router"
 )
 
 func main() {

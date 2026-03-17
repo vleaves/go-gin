@@ -1,4 +1,4 @@
-module 05_router
+module 02_router
 
 go 1.25.6
 

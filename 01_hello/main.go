@@ -1,7 +1,7 @@
 package main
 
 import (
-	"04_hello/router"
+	"01_hello/router"
 )
 
 func main() {
