@@ -30,3 +30,17 @@ func UserRegister(c *gin.Context) {
 	log.Println("id is ", id)
 	c.Redirect(http.StatusMovedPermanently, "/")
 }
+
+func UserLogin(c *gin.Context) {
+	var user model.UserModel
+	if e := c.ShouldBind(&user); e != nil {
+		log.Panicln("login 绑定错误", e.Error())
+	}
+	u := user.QueryByEmail()
+	if u.Password == user.Password {
+		log.Println("登录成功", u.Email)
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"email": u.Email,
+		})
+	}
+}

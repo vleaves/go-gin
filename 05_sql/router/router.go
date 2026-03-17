@@ -22,9 +22,8 @@ func InitRouter() *gin.Engine {
 	// 添加 user
 	userRouter := eng.Group("/user")
 	{
-		userRouter.GET("/:name", handler.UserSave)
-		userRouter.GET("", handler.UserSaveByQuery)
 		userRouter.POST("/register", handler.UserRegister)
+		userRouter.POST("/login", handler.UserLogin)
 	}
 
 	return eng

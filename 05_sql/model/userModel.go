@@ -6,9 +6,10 @@ import (
 )
 
 type UserModel struct {
-	Email         string `form:"email" binding:"email"`
-	Password      string `form:"password"`
-	PasswordAgain string `form:"password-again" binding:"eqfield=Password"`
+	Id       int    `form:"id"`
+	Email    string `form:"email" binding:"email"`
+	Password string `form:"password"`
+	// PasswordAgain string `form:"password-again" binding:"eqfield=Password"`
 }
 
 func (user *UserModel) Save() int64 {
@@ -21,4 +22,14 @@ func (user *UserModel) Save() int64 {
 		log.Panicln("user insert id error", err.Error())
 	}
 	return id
+}
+
+func (user *UserModel) QueryByEmail() UserModel {
+	u := UserModel{}
+	row := initDB.Db.QueryRow("select * from ginhello.user where email = ?;", user.Email)
+	e := row.Scan(&u.Id, &u.Email, &u.Password)
+	if e != nil {
+		log.Panicln(e)
+	}
+	return u
 }
